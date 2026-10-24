@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.noor.launcher'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.noor.launcher'
+        minSdk 26
+        targetSdk 30
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // يتوقّع التوقيع بمفتاح الـ debug عشان الـ APK يتثبّت مباشرة من غير إعداد مفاتيح
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+// لا توجد أي مكتبات خارجية عمداً: أخف وأسرع على شاشة 1 جيجا رام.
+dependencies {
+}
